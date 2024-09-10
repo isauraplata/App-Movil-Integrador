@@ -4,6 +4,7 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/act1_screen.dart';
+import 'screens/phone_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => WelcomeScreen(),  
         '/login': (context) => LoginScreen(onLogin: () {
-          Navigator.pushNamed(context, '/act');
+          Navigator.pushNamed(context, '/phone');
         }),  
         '/register': (context) => RegisterScreen(),  
         '/act': (context) => Act1Screen(),  
+        '/phone': (context) => PhoneScreen(),  
       },
     );
   }
