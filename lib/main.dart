@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterScreen(),  
         '/act': (context) => Act1Screen(),  
         '/phone': (context) => PhoneScreen(),  
+        '/act1': (context) => Act1Screen()
       },
     );
   }

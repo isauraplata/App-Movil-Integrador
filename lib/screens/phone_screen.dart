@@ -21,6 +21,22 @@ class _PhoneScreenState extends State<PhoneScreen> {
     }
   }
 
+  void _sendSMS(String message, String phoneNumber) async {
+    final Uri smsUri = Uri(
+      scheme: 'sms',
+      path: phoneNumber,
+      queryParameters: <String, String>{
+        'body': message,
+      },
+    );
+
+    if (await canLaunchUrl(smsUri)) {
+      await launchUrl(smsUri);
+    } else {
+      print('No se puede enviar el mensaje');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +50,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
           children: [
             // Label 1
             Text(
-              'Label 1',
+              '221200 - Yahir Alexander Gutiérrez Martínez',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
@@ -44,7 +60,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
 
             // Label 2
             Text(
-              'Label 2',
+              '221216 - Isaura Valeria Plata Rojas',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
@@ -54,7 +70,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
 
             // Label 3
             Text(
-              'Label 3',
+              '221213 - Marco Darinel Ortíz Díaz',
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
@@ -66,7 +82,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
             ElevatedButton(
               onPressed: () {
                 // Aquí se realiza la llamada
-                _makePhoneCall('9191290778');  
+                _makePhoneCall('9613865736');  
               },
               child: Text('Llamada'),
             ),
@@ -75,6 +91,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
             // Botón "Mensaje"
             ElevatedButton(
               onPressed: () {
+                _sendSMS('Hola, este es un mensaje desde Flutter!', '9191697092');
               },
               child: Text('Mensaje'),
             ),
